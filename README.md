@@ -15,3 +15,7 @@ Every page have navigation on top that include:
   - register (*only if you are not logged)
   - login (*only if you are not logged)
   - logout (*only if you are logged)
+Admin functionality
+  - edit post
+  - delete post
+  - dashboard - can edit user role, custom widgets and posts count per page
