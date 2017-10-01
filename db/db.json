@@ -46,6 +46,7 @@
   "users": [
     {
       "role": "admin",
+      "admin": true,
       "name": "Ivan Ivanov",
       "username": "admin",
       "passHash": "c8c6ff54ede9c767036cc81477dda4eb4707040d",
@@ -55,6 +56,7 @@
     },
     {
       "role": "user",
+      "admin": false,
       "name": "Slavka Slavova",
       "username": "dani",
       "passHash": "5f6ea117089f58b38bb77d3fab5132e15534e08a",
