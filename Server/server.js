@@ -15,6 +15,8 @@ app.use('/templates', express.static(path.join(__dirname, '../public/templates')
 app.use('/css', express.static(path.join(__dirname, '../public/css')));
 app.use('/js', express.static(path.join(__dirname, '../public/js')));
 
+require('./middleware/authorize-user')(app, data);
+
 //User routes
 const usersController = require('./controllers/users.controller')(data);
 app.put('/api/auth/login', usersController.login);
