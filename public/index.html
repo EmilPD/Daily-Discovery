@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta property="og:description" content="Daily Discovery" />
+  <meta name="description" content="Daily Discovery">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Discovery</title>
+  <link type="image/x-icon" rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/bootstrap-select/dist/css/bootstrap-select.css">
+  <link rel="stylesheet" href="libs/toastr/build/toastr.css">
+  <link rel="stylesheet" href="libs/jquery-ui-dist/jquery-ui.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <a href="#/home"><img src="images/logo.png" alt="Daily Discovery logo"/></a>
+    </div>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul id="top-navbar" class="nav navbar-nav">
+            <li id="home-link" class="active"><a href="#/home">Home</a></li>
+            <li><a href="#/categories/entertainment">Entertainment</a></li>
+            <li><a href="#/categories/fashion">Fashion</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Politics</a>
+              <ul class="dropdown-menu">
+                <li><a href="#/categories/germanelections">German elections</a></li>
+                <li><a href="#/categories/frenchelections">French elections</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Education</a>
+              <ul class="dropdown-menu">
+                <li><a href="#/categories/telerik">Telerik Academy</a></li>
+                <li><a href="#/categories/softuni">Soft Uni</a></li>
+                <li><a href="#/categories/hackbulgaria">Hack Bulgaria</a></li>
+              </ul>
+            </li>
+            <li><a id="publish-post-link" class="hidden" href="#/publishpost">Publish Post</a></li>
+            <li><a id="dashboard-link" class="hidden" href="#/dashboard">Dashboard</a></li>
+            <li><a id="login-link" class="hidden" href="#/login">Login</a></li>
+            <li><a id="register-link" class="hidden" href="#/register">Register</a></li>
+            <li><a id="logout-link" class="hidden" href="#/logout">Logout</a></li>
+          </ul>
+          
+          <form id="search-box-form" class="navbar-form navbar-right">
+            <div class="form-group">
+              <input id="search-box" type="text" class="form-control" placeholder="Search this website...">
+            </div>
+          </form>
+          <p id="hello-user" class="navbar-text navbar-right hidden">Hello User</p>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+
+  <main id="main"></main>
+
+  <footer></footer>
+  
+<script src="libs/core-js/client/shim.min.js"></script>
+<script src="libs/systemjs/dist/system.js"></script>
+<script src="app/system-config.js"></script>
+<script src="libs/navigo/lib/navigo.js"></script>
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="libs/handlebars/dist/handlebars.js"></script>
+<script src="libs/crypto-js/crypto-js.js"></script>
+<script src="libs/toastr/build/toastr.min.js"></script>
+<script src="js/jquery.simplePagination.js"></script>
+
+</body>
+
+</html>
