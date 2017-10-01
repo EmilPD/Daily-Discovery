@@ -1,0 +1,91 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "shortname": "entertainment",
+      "name": "Entertainment",
+      "posts": []
+    },
+    {
+      "id": 2,
+      "shortname": "fashion",
+      "name": "Fashion",
+      "posts": []
+    },
+    {
+      "id": 3,
+      "shortname": "germanelections",
+      "name": "German elections",
+      "posts": []
+    },
+    {
+      "id": 4,
+      "shortname": "frenchelections",
+      "name": "French elections",
+      "posts": []
+    },
+    {
+      "id": 5,
+      "shortname": "telerik",
+      "name": "Telerik Academy",
+      "posts": []
+    },
+    {
+      "id": 6,
+      "shortname": "softuni",
+      "name": "Soft Uni",
+      "posts": []
+    },
+    {
+      "id": 7,
+      "shortname": "hackbulgaria",
+      "name": "Hack Bulgaria",
+      "posts": []
+    }
+  ],
+  "users": [
+    {
+      "role": "admin",
+      "name": "Ivan Ivanov",
+      "username": "admin",
+      "passHash": "c8c6ff54ede9c767036cc81477dda4eb4707040d",
+      "authKey": "c8c6ff54ede9c767036cc81477dda4eb4707040d#XjM-K$(c%AOFXszfxM@",
+      "imageUrl": "images/users/ivan.jpg",
+      "id": "840dd3c2-a08a-44ee-9b31-5035fbaa5460"
+    },
+    {
+      "role": "user",
+      "name": "Slavka Slavova",
+      "username": "dani",
+      "passHash": "5f6ea117089f58b38bb77d3fab5132e15534e08a",
+      "authKey": "5f6ea117089f58b38bb77d3fab5132e15534e08asNyWks*!r&*lwwERWIXd",
+      "imageUrl": "images/users/slavka.jpg",
+      "id": "10f1e018-b265-41a4-a456-c8e0752225c7"
+    }
+  ],
+  "config":
+    {
+      "postsCountHome": 12,
+      "postsCountCategory": 8
+    },
+  "widgets": [
+    {
+      "footer": [
+        {
+          "id": 1,
+          "text": "footer widget"
+        }
+      ],
+      "sidebar": [
+        {
+          "id": 2,
+          "text": "sidebar widget 1"
+        },
+        {
+          "id": 3,
+          "text": "sidebar widget 2"
+        }
+      ]
+    }
+  ]
+}
