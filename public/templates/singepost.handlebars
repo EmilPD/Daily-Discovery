@@ -1,0 +1,60 @@
+<nav class="row">
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#/home"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#/categories/{{result.post.categoryShort}}"><span itemprop="name">{{result.post.category}}</span></a>
+            <meta itemprop="position" content="2" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="post-title" itemprop="name">{{result.post.title}}</span>
+            <meta itemprop="position" content="3" />
+        </li>
+    </ol>
+</nav>
+
+<div class="row single-post-all-container"> {{!-- all content --}}
+    <article class="col-ts-12 col-md-8 col-lg-9 single-post-container"> {{!-- all post content --}}
+        <div class="row single-post-main-content-container"> {{!-- post content --}}
+            <div class="border-top"></div>
+            <section class="col-ts-12 col-lg-3 single-post-meta">
+                <figure class="single-post-image-container">
+                    <img class="single-post-image" src="{{result.post.imageUrl}}" alt="post image">
+                    <div class="compact-post-inset-shadow"></div>
+                    <figcaption>
+                        <div class="single-post-category">{{result.post.category}}</div>
+                        <time class="single-post-date">
+                            <span>{{result.post.publishMonth}}</span>
+                            <span>{{result.post.publishDate}}</span>
+                        </time>
+                    </figcaption>
+                </figure>
+                <div class="single-post-tags-container">
+                    <h3>Tags</h3>
+                    {{#each result.post.tags}}
+                        <span>{{this}}</span> 
+                    {{/each}}
+                </div>
+            </section>
+
+            <section class="col-ts-12 col-lg-9 single-post-main">
+                <h1>{{result.post.title}}</h1>
+                <div id="admin-edit-delete">
+                    <a href="#/posts/update/{{result.post.id}}"><span id="edit-post-link">Edit</span></a><br />
+                    <a href="#/posts/delete/{{result.post.id}}"><span id="edit-post-link">Delete</span></a>
+                </div>
+                <div class="single-post-author">
+                    Posted by {{result.post.author}} IN {{result.post.category}} | {{result.post.comments.length}} Comments
+                </div>
+
+                <div class="single-post-content">
+                    {{result.post.content}}
+                </div>
+
+            </section>
+            
+        </div> {{!-- end post content --}}
+    </article> {{!-- end all post content --}}
+</div> {{!-- end all content --}}
