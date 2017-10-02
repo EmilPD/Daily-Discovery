@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 id="main-title">Publish post</h1>
+    <div id="publish-post">
+        <form id="publish-post-form">
+            <label for="select-post-category">Select category</label><br>
+            <select id="select-post-category" name="select_category" class="form-control">
+                <option selected value="entertainment">Entertainment</option>
+                <option value="fashion">Fashion</option>
+                <optgroup label="Politics">
+                    <option value="germanelections">German elections</option>
+                    <option value="frenchelections">French elections</option>
+                </optgroup>
+                <optgroup label="Education">
+                    <option value="telerik">Telerik Academy</option>
+                    <option value="softuni">Soft Uni</option>
+                    <option value="hackbulgaria">Hack Bulgaria</option>
+                </optgroup>
+            </select><br>
+
+            <label for="post-title">Title</label><br>
+            <input type="text" name="title" id="post-title" class="form-control"/><br>
+
+            <label for="post-content">Content</label><br>
+            <textarea rows="4" name="content" id="post-content" class="form-control"></textarea><br>
+            
+            <label for="post-image-url">Image Url</label><br>
+            <input type="text" name="image" id="post-image-url" class="form-control"/><br>
+
+            <label for="post-tags">Tags</label><br>
+            <input type="text" name="tags" id="post-tags" placeholder="Enter here comma separated tags" class="form-control"/><br>
+
+            <button id="post-btn" type="submit" class="btn btn-primary">Publish</button>
+        </form>
+    </div>
+</div>
