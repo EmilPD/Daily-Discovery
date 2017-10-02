@@ -1,0 +1,165 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
+@import 'fonts';
+
+// Variables
+@import 'variables';
+
+// General
+
+.hidden {
+    display: none;
+}
+
+body {
+    background: url('../images/bg.jpg');
+    background-repeat: repeat-y;
+    background-size: contain;
+    font-family: $primary-body-font;
+    font-size: 1.3rem;
+    color: $body-font-color;
+}
+
+footer {
+    background: url(../images/footer-bg.png);
+    background-repeat: repeat-y;
+    background-size: contain;
+    border-top: 1px solid #4a4a4a;
+    padding: 2rem 2rem 7rem;
+}
+
+a {
+    color: $links-color;
+    text-shadow: 1px 1px #191919;
+}
+a:focus,
+a:hover {
+    color: #8e8e8e;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+}
+
+#main {
+    background: none;
+    border-bottom: 1px solid #171717;
+    margin: 0 auto;
+    min-height: 400px;
+    width: 95%;
+}
+
+#main-title {
+    text-align: center;
+    margin: 2rem 0 3rem;
+    font-family: $primary-title-font;
+    color: $base-color;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px $black;
+}
+
+#login-form,
+#register-form,
+#publish-post-form, #edit-post-form,
+.sidebar-widget-form,
+.footer-widget-form {
+    width: 50%;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+    background-color: #fefefe;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+#login-form label,
+#register-form label,
+#publish-post-form, #edit-post-form label,
+.sidebar-widget-form label,
+.footer-widget-form label {
+    margin-bottom: 0.7rem;
+}
+
+.admin-dashboard-tabs {
+    background-color: $widget-background-color;
+    box-shadow: 2px 2px 3px $black;
+    margin: 0 auto;
+    position: relative;
+    width: 50%;
+}
+
+#login-username,
+#login-password {
+    width: 100%;
+}
+
+#nothing-found {
+    margin: 0 auto;
+    color: #f3f3f3;
+    text-shadow: 1px 1px $black;
+    font-size: 5rem;
+    padding: 5rem;
+}
+
+.row.footer-container {
+    color: #d1d1d1;
+    line-height: 1.9rem;
+    margin: auto;
+    width: 90%;
+}
+
+.footer-widget-title {
+    color: $brand-secondary-color;
+    font-family: $primary-title-font;
+    font-size: 3rem;
+    text-shadow: 1px 1px $black;
+}
+
+.footer-container a {
+    color: #d1d1d1;
+}
+
+#compact-posts-container > article {
+    background: none;
+    padding: 1rem;
+}
+
+.category-posts-container {
+    padding-right: 0;
+    padding-left: 0.5rem;
+}
+
+.compact-post-container {
+    background-color: $base-color;
+    box-shadow: 2px 2px 3px $black;
+    max-width: 100%;
+    position: relative;
+}
+
+.compact-post-content {
+    padding: 0.3rem 0.3rem 1rem;
+}
+
+.compact-post-image-containter,
+.single-post-image-container {
+    position: relative;
+}
+
+.single-post-image-container {
+    border: 4px solid $light-gray-color;
+}
+.compact-post-inset-shadow {
+       -moz-box-shadow: #555 0 0 5px inset;
+    -webkit-box-shadow: #555 0 0 5px inset;
+            box-shadow: #555 0 0 5px inset;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
