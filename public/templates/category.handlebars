@@ -1,0 +1,58 @@
+<nav class="row">
+    <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a itemprop="item" href="#/home"><span itemprop="name">Home</span></a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="category-name" itemprop="name">{{posts.result.0.category}}</span>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ol>
+</nav>
+
+<div class="row category-container">
+    <div class="col-ts-12 col-sm-6 col-md-8 col-lg-9 category-posts-container">
+        <div id="compact-posts-container" class="row eq-height">
+            {{#if posts.result}}
+                {{#each posts.result}}
+                    <article class="col-xs-12 col-md-6 col-lg-3 eq-height">
+                        <div class="compact-post-container">
+                            <div class="compact-post-content">
+                                <a href="#/posts/{{id}}">
+                                    <figure class="compact-post-image-containter">
+                                        <img class="compact-post-image" src="{{imageUrl}}" alt="post image"/>
+                                        <div class="compact-post-inset-shadow"></div>
+                                        <figcaption>
+                                            <div class="compact-post-category">{{category}}</div>
+                                            <time class="compact-post-date">
+                                                <span>{{publishMonth}}</span>
+                                                <span>{{publishDate}}</span>
+                                            </time>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                                <section>
+                                    <a href="#/posts/{{id}}">
+                                        <h2 class="compact-post-title" title="{{title}}">{{substr '16' title}}</h2>
+                                    </a>
+                                    <div class="compact-post-author">
+                                        Posted by {{author}}
+                                    </div>
+                                    <div class="compact-post-content-divider"></div>
+                                    <div class="compact-post-text">
+                                        {{substr '90' content}}
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="border-bottom"></div>
+                        </div>
+                    </article>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<div id="pagination">
+</div>
