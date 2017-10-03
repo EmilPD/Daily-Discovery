@@ -40,6 +40,22 @@ class AdminController {
                     $('select[name="post_count_category"]').find('option[value="4"]').attr('selected', true);
                 }
 
+                $('input[type=radio][name=user_role]').change(function() {
+                    const userId = $(this).parent().attr('data-id');
+                    const userRole = this.value;
+                    
+                    data.users.changeRole(userId, userRole)
+                    .then(
+                        result => {
+                            notifier.success(`User role has been saved!`);
+                        },
+                        errorMsg => {
+                            notifier.error(errorMsg.responseJSON);
+                        }
+                    )
+                    .catch(console.log);
+                });
+
                 $('.posts-count-form').on('submit', function(e) {
                     e.preventDefault();
 

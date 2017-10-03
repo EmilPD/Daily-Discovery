@@ -1,0 +1,55 @@
+<h1 id="main-title">Dashboard</h1>
+<section class="admin-dashboard-tabs">
+  <ul class="row nav nav-tabs">
+    <li class="tab col-xs-4 active"><a data-toggle="tab" href="#users">Users</a></li>
+    <li class="tab col-xs-4"><a data-toggle="tab" href="#widgets">Wodgets</a></li>
+    <li class="tab col-xs-4"><a data-toggle="tab" href="#count">Posts count</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="users" class="tab-pane fade in active">
+      {{#each users}}
+          <article class="row">
+              <figure class="col-sm-3 col-md-2">
+                  <img class="tabs-post-author" src="{{this.imageUrl}}" alt="author avatar">
+              </figure>
+              <div class="col-sm-6 col-md-8">
+                  <div class="tabs-post-title">
+                      {{this.name}}
+                  </div>
+              </div>
+              <div class="col-sm-3 col-md-2 change-user-role">
+                <form class="change-users-role-form" data-id="{{this.id}}" data-name="{{this.name}}">
+                  {{#if this.admin}}
+                    <input type="radio" name="user_role" value="admin" checked="checked"> Admin<br>
+                    <input type="radio" name="user_role" value="user"> User
+                  {{else}}
+                    <input type="radio" name="user_role" value="admin"> Admin<br>
+                    <input type="radio" name="user_role" value="user" checked="checked"> User
+                  {{/if}}
+                </form>
+              </div>
+          </article>
+      {{/each}}
+    </div>
+    <div id="widgets" class="tab-pane fade">
+      
+    </div>
+    <div id="count" class="tab-pane fade">
+      <form class="posts-count-form">
+        <label for="post-count-home">Select posts for Home page</label><br>
+        <select id="post-count-home" name="post_count_home" class="form-control">
+          <option value="12">12</option>
+          <option value="6">6</option>
+        </select><br>
+        <label for="post-count-category">Select posts for Category page</label><br>
+        <select id="post-count-category" name="post_count_category" class="form-control">
+          <option value="8">8</option>
+          <option value="4">4</option>
+        </select><br>
+        <button id="post-count-btn" type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="border-bottom"></div>
+</section>
