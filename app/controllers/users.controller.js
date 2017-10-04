@@ -6,6 +6,8 @@ import { User } from '../models/user.js';
 
 class UsersController {
     loadLogin() {
+        commonController.loadAll();
+
         Promise.all([tl.loadTemplate('login')])
             .then((template) => $('#main').html(template))
             .then(() => {
@@ -29,6 +31,8 @@ class UsersController {
         }
 
         loadRegister() {
+            commonController.loadAll();
+
             Promise.all([tl.loadTemplate('register')])
                 .then((template) => $('#main').html(template))
                 .then(() => {
@@ -62,6 +66,7 @@ class UsersController {
         loadLogout() {
             data.users.logout()
                 .then(() => {
+                    commonController.loadAll();
                     notifier.success('Logged out');
                     location.href = '#/home';
                 })
