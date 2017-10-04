@@ -90,10 +90,32 @@ module.exports = (data) => {
         }
     }
 
+    function changeRole(req, res) {
+        const user = req.user;
+        const userInfo = req.body;
+        const changedRoleUserId = userInfo.userId;
+        const userRole = userInfo.userRole;
+
+        if (!user || typeof user.username !== 'string' || user.role !== 'admin') {
+            res.status(400)
+                .json('Only admin can change users role!');
+            return;
+        }
+
+        return data.users.changeRole(changedRoleUserId, userRole)
+            .then(() => {
+                return res.status(201)
+                    .json({
+                        result: 'Successfully changed user role'
+                    });
+            });
+    }
+
     return {
         register: register,
         login: login,
         isAdmin: isAdmin,
         getAll: getAll,
+        changeRole: changeRole,
     };
 };

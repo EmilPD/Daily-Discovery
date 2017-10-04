@@ -23,16 +23,10 @@ app.put('/api/auth/login', usersController.login);
 app.post('/api/auth/register', usersController.register);
 app.get('/api/auth/isAdmin', usersController.isAdmin);
 app.get('/api/auth/users', usersController.getAll);
-app.post('/api/auth/users/changeRole', usersController.changeRole);
 
 // Categories routes
 const categoriesController = require('./controllers/categories.controller')(data);
 app.get('/api/categories/:categoryName/:pageNumber', categoriesController.get);
-
-// Config
-const configController = require('./controllers/config.controller')(data);
-app.post('/api/config/save', configController.saveConfig);
-app.get('/api/config', configController.getConfig);
 
 // Widgets
 const widgetsController = require('./controllers/widgets.controller')(data);
@@ -50,14 +44,10 @@ app.get('/api/posts/paginationInfo', postsController.getHomePaginationInfo);
 app.get('/api/posts/paginationInfo/:categoryName', postsController.getCategoryPaginationInfo);
 app.get('/api/posts/comments', postsController.getRecentComments);
 app.get('/api/posts/recent/:count', postsController.getRecent);
-app.get('/api/posts/popular', postsController.getPopular);
 app.get('/api/posts/:id', postsController.get);
-app.get('/api/posts/search/:searchTerm', postsController.getSearchPosts);
-app.get('/api/posts/related/:categoryId/:postId', postsController.getRelated);
 app.post('/api/comments/:id', postsController.postComment);
-app.post('/api/comments/reply/:id', postsController.postReplyComment)
+app.post('/api/comments/reply/:id', postsController.postReplyComment);
 app.post('/api/posts/edit/:id', postsController.editPost);
-app.post('/api/posts/delete/:id', postsController.deletePost);
 
 app.listen(process.env.PORT || 80, () => {
     console.log('App is running');

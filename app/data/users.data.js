@@ -67,6 +67,18 @@ const users = (() => {
             return requester.get('/api/auth/users', headers);
         },
 
+        changeRole(userId, userRole) {
+            const body = {
+                userId: userId,
+                userRole: userRole
+            };
+
+            const headers = {
+                'daily-discovery-auth-key': localStorage.getItem(LOCALSTORAGE_AUTH_KEY_NAME)
+            };
+
+            return requester.post(`/api/auth/users/changeRole`, body, headers);
+        }
     };
 })();
 
