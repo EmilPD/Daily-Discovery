@@ -16,6 +16,14 @@ const posts = (() => {
             return requester.get(`/api/posts/page/${pageNumber}`);
         },
 
+        getRecentPosts(count) {
+            return requester.get(`/api/posts/recent/${count}`);
+        },
+
+        getRecentComments() {
+            return requester.get(`/api/posts/comments`);
+        },
+
         publishPost(post) {
             const body = {
                 title: post.title,

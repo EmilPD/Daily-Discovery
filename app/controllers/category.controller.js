@@ -9,11 +9,13 @@ class CategoryController {
 
         Promise.all([
             data.categories.getByName(categoryName, pageNumber),
+            data.posts.getRecentPosts(6),
+            data.posts.getRecentComments(),
             tl.loadTemplate('category')
         ])
-        .then(([posts, template]) => {
+        .then(([posts, recentPosts, recentComments, template]) => {
             if (posts.result !== null) {
-                $('#main').html(template({posts}));
+                $('#main').html(template({posts, recentPosts, recentComments}));
             }
         })
         .then(() => {
