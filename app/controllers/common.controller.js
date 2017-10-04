@@ -8,8 +8,10 @@ class CommonController {
             .then((result) => {
                 if (result.isAdmin === 'true') {
                     $('#publish-post-link').removeClass('hidden');
+                    $('#dashboard-link').removeClass('hidden');
                 } else {
                     $('#publish-post-link').addClass('hidden');
+                    $('#dashboard-link').addClass('hidden');
                 }
             })
             .catch(console.log);
@@ -23,6 +25,7 @@ class CommonController {
             $('#hello-user').removeClass('hidden');
         } else {
             $('#publish-post-link').addClass('hidden');
+            $('#dashboard-link').addClass('hidden');
             $('#hello-user').addClass('hidden');
             $('#login-link').removeClass('hidden');
             $('#register-link').removeClass('hidden');
@@ -38,9 +41,23 @@ class CommonController {
         });
     }
 
+    loadFooter() {
+        Promise.all([
+            data.posts.getNumberOfPosts(7),
+            data.posts.getRecentPosts(7),
+            data.widgets.getFooterWidget(),
+            tl.loadTemplate('footer')
+        ])
+        .then(([posts, recentPosts, footerWidget, template]) => {
+            $('footer').html(template({posts, recentPosts, footerWidget}))
+        })
+        .catch(console.log);
+    }
+
     loadAll() {
         this.showHideLoginRegister();
         this.navLinksSelectActive();
+        this.loadFooter();
     }
 
     loadPageNotFound() {
