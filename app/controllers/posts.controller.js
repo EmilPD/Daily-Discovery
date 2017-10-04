@@ -1,12 +1,14 @@
 import { notifier } from '../utils/notifier';
 import { data } from '../data/data';
 import { templateLoader as tl} from '../utils/template-loader';
+import { commonController } from '../controllers/common.controller';
 import { Post } from '../models/post';
 import { Comment } from '../models/comment';
 
 class PostsController {
 
     loadPublishPost() {
+        commonController.loadAll();
 
         data.users.isAdmin()
         .then((result) => {
@@ -50,7 +52,63 @@ class PostsController {
         });
     }
 
+    loadEditPost(id) {
+        commonController.loadAll();
+
+        data.users.isAdmin()
+        .then((result) => {
+            if (result.isAdmin === 'false') {
+                notifier.error('Only admin can edit posts!');
+                location.href = '#/home';
+                return;
+            }
+        })
+        .then(() => {
+        Promise.all([
+                data.posts.getPost(id),
+                tl.loadTemplate('editpost')
+            ])
+            .then(([result, template]) => {
+                $('#main').html(template({result}));
+
+                return result.post;
+            })
+            .then((post) => {
+                const categoryShort = post.categoryShort;
+                $('#select-post-category option:selected').removeAttr('selected');
+                $('select[name="select_category"]').find(`option[value=${categoryShort}]`).attr('selected', true);
+                
+                $('#edit-post-form').on('submit', function(e) {
+                    e.preventDefault();
+
+                    const category = $('#select-post-category').val();
+                    const title = $('#post-title').val();
+                    const content = $('#post-content').val();
+                    const imageUrl = $('#post-image-url').val();
+                    const tags = $('#post-tags').val();
+
+                    const updatedPost = new Post(title, content, category, imageUrl, tags);
+
+                    data.posts.editPost(updatedPost, post.id)
+                    .then(
+                        result => {
+                            notifier.success(`Post updated successfully!`);
+                            location.href = `#/posts/posts/${post.id}`;
+                        },
+                        errorMsg => {
+                            notifier.error(errorMsg.responseJSON);
+                            location.href = '#/home';
+                        }
+                    )
+                    .catch(console.log);
+                });
+            })
+            .catch(console.log);
+        });
+    }
+
     loadPost(id) {
+        commonController.loadAll();
 
         $("#submit-comment").off();
         let self = this;
@@ -67,8 +125,8 @@ class PostsController {
                     data.widgets.getSidebarWidget(),
                     tl.loadTemplate('singepost')
                 ])
-                .then(([result, template]) => 
-                    $('#main').html(template({result, sidebarWidget}))
+                .then(([result, relatedPosts, recentPosts, popularPosts, sidebarWidget, template]) => 
+                    $('#main').html(template({result, relatedPosts, recentPosts, popularPosts, sidebarWidget}))
                 )
                 .then(() => {
                     data.users.isAdmin()
