@@ -28,6 +28,111 @@ module.exports = (db) => {
                 });
         },
 
+        getHomePaginationInfo() {
+            return Promise.resolve()
+                .then(() => {
+                    const postsPerPageHome = getConfig().postsCountHome;
+
+                    const count = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .value()
+                        .length;
+
+                    const paginationInfo = {postsCount: count, postsPerPage: postsPerPageHome};
+
+                    return paginationInfo;
+                });
+        },
+
+        getCategoryPaginationInfo(categoryName) {
+            return Promise.resolve()
+                .then(() => {
+                    const postsPerPageCategory = getConfig().postsCountCategory;
+                    
+                    let count = db.get('categories')
+                        .find({shortname: categoryName})
+                        .get('posts')
+                        .value();
+                    
+                    if (count) {
+                        count = count.length;
+                    } else {
+                        count = 'undefined';
+                    }
+
+                    const paginationInfo = {postsCount: count, postsPerPage: postsPerPageCategory};
+
+                    return paginationInfo;
+                });
+        },
+
+        getPostsCount() {
+            return Promise.resolve()
+                .then(() => {
+                    const postsCount = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .value()
+                        .length;
+                    return postsCount;
+                });
+        },
+
+        getRecentPosts(count) {
+            return Promise.resolve()
+                .then(() => {
+                    const recentPosts = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .sortBy('publishTime')
+                        .value();
+                    return recentPosts.reverse().slice(0, count);
+                });
+        },
+
+        getRecentComments() {
+            return Promise.resolve()
+                .then(() => {
+                    const recentComments = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .reduce((acc, val) => acc.concat( val.comments ), [])
+                        .sortBy('publishTime')
+                        .value();
+
+                    return recentComments.reverse().slice(0, 6);
+                });
+        },
+
+        getCommentsCountByPostId(id) {
+            return Promise.resolve()
+                .then(() => {
+                    const count = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .find({ id: id })
+                        .get('comments')
+                        .value()
+                        .length;
+                    return count;
+                });
+        },
+
+        getCommentsCount() {
+            return Promise.resolve()
+                .then(() => {
+                    const commentsCount = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .reduce((acc, val) => acc.concat( val.comments ), [])
+                        .value()
+                        .length;
+                    const replyCommentsCount = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .reduce((acc, val) => acc.concat( val.comments ), [])
+                        .reduce((acc, val) => acc.concat( val.replyComments ), [])
+                        .value()
+                        .length;
+
+                    return commentsCount + replyCommentsCount;
+                });
+        },
+
         getById(id) {
             return Promise.resolve()
                 .then(() => {
@@ -78,6 +183,29 @@ module.exports = (db) => {
                         .find({ id: post.categoryId })
                         .get('posts')
                         .last()
+                        .value();
+                });
+        },
+
+        edit(post, postId, categoryId) {
+            return Promise.resolve()
+                .then(() => {
+                    db.get('categories')
+                        .find({ id: categoryId })
+                        .get('posts')
+                        .remove({id: postId})
+                        .write();
+
+                    db.get('categories')
+                        .find({ id: post.categoryId })
+                        .get('posts')
+                        .push(post)
+                        .write();
+                    
+                    return db.get('categories')
+                        .find({ id: post.categoryId })
+                        .get('posts')
+                        .getById(postId)
                         .value();
                 });
         },
