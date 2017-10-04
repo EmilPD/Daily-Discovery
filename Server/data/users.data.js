@@ -41,6 +41,27 @@ module.exports = (db) => {
                 });
         },
 
+        changeRole(changedRoleUserId, userRole) {
+            return Promise.resolve()
+                .then(() => {
+                    let isAdmin = false;
+                    
+                    if (userRole === 'admin') {
+                        isAdmin = true;
+                    }
+
+                    const user = db.get('users')
+                        .find({id: changedRoleUserId})
+                        .assign({
+                            "role": userRole,
+                            "admin": isAdmin
+                        })
+                        .write();
+
+                    return user;
+                });
+        },
+
         add(user) {
             return Promise.resolve()
                 .then(() => {
