@@ -52,6 +52,32 @@
             {{/if}}
         </div>
     </div>
+    <aside class="col-ts-12 col-sm-6 col-md-4 col-lg-3 sidebar-widgets-container">
+        <section class="sidebar-widget-container">
+            <div class="recent-comments-container">
+                <h3>Recent comments</h3>
+                <div class="sidebar-widget-content-divider"></div>
+                <div class="sidebar-widget-links-container">
+                    {{#each recentComments.result}}
+                        <a href="#/posts/{{this.postId}}">{{substr '30' this.text}}</a><br />
+                    {{/each}}
+                </div>
+                <div class="border-bottom"></div>
+            </div>
+        </section>
+        <section class="sidebar-widget-container">
+            <div class="recent-posts-container">
+                <h3>Recent posts</h3>
+                <div class="sidebar-widget-content-divider"></div>
+                <div class="sidebar-widget-links-container">
+                    {{#each recentPosts.result}}
+                        <a href="#/posts/{{this.id}}">{{substr '30' this.title}}</a><br />
+                    {{/each}}
+                </div>
+                <div class="border-bottom"></div>
+            </div>
+        </section>
+    </aside>
 </div>
 
 <div id="pagination">
