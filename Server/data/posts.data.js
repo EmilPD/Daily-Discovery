@@ -210,6 +210,19 @@ module.exports = (db) => {
                 });
         },
 
+        delete(postId, categoryId) {
+            return Promise.resolve()
+                .then(() => {
+                    db.get('categories')
+                        .find({ id: categoryId })
+                        .get('posts')
+                        .remove({id: postId})
+                        .write();
+                    
+                    return 'Successfully deleted post';
+                });
+        },
+
         addComment(comment, postId) {
             return Promise.resolve()
                 .then(() => {
