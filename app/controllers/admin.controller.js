@@ -20,10 +20,11 @@ class AdminController {
         .then(() => {
             Promise.all([
                 data.users.getAll(),
+                data.widgets.getAll(),
                 tl.loadTemplate('admin')
             ])
-            .then(([users, template]) => {
-                $('#main').html(template({users}));
+            .then(([users, widgets, template]) => {
+                $('#main').html(template({users, widgets}));
 
                 return data.admin.getConfig();
             })
@@ -51,6 +52,50 @@ class AdminController {
                         },
                         errorMsg => {
                             notifier.error(errorMsg.responseJSON);
+                        }
+                    )
+                    .catch(console.log);
+                });
+
+                $('.footer-widget-form').on('submit', function(e) {
+                    e.preventDefault();
+
+                    const footerWidgetTitle = $('#footer-widget-title').val();
+                    const footerWidgetText = $('#footer-widget-text').val();
+
+                    const widgetId = $(this).attr('data-id');
+
+                    data.widgets.saveWidget(footerWidgetTitle, footerWidgetText, widgetId)
+                    .then(
+                        result => {
+                            notifier.success(`Widget successfully saved!`);
+                            self.loadDashboard();
+                        },
+                        errorMsg => {
+                            notifier.error(errorMsg.responseJSON);
+                            location.href = '#/dashboard';
+                        }
+                    )
+                    .catch(console.log);
+                });
+
+                $('.sidebar-widget-form').on('submit', function(e) {
+                    e.preventDefault();
+
+                    const sidebarWidgetTitle = $('#sidebar-widget-title').val();
+                    const sidebarWidgetText = $('#sidebar-widget-text').val();
+
+                    const widgetId = $(this).attr('data-id');
+
+                    data.widgets.saveWidget(sidebarWidgetTitle, sidebarWidgetText, widgetId)
+                    .then(
+                        result => {
+                            notifier.success(`Widget successfully saved!`);
+                            self.loadDashboard();
+                        },
+                        errorMsg => {
+                            notifier.error(errorMsg.responseJSON);
+                            location.href = '#/dashboard';
                         }
                     )
                     .catch(console.log);
