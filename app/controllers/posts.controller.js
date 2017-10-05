@@ -107,6 +107,33 @@ class PostsController {
         });
     }
 
+    loadDeletePost(id) {
+        commonController.loadAll();
+
+        data.users.isAdmin()
+        .then((result) => {
+            if (result.isAdmin === 'false') {
+                notifier.error('Only admin can delete posts!');
+                location.href = '#/home';
+                return;
+            }
+        })
+        .then(() => {
+            data.posts.deletePost(id)
+            .then(
+                result => {
+                    notifier.success(`Post deleted successfully!`);
+                    location.href = `#/home`;
+                },
+                errorMsg => {
+                    notifier.error(errorMsg.responseJSON);
+                    location.href = '#/home';
+                }
+            )
+            .catch(console.log);
+        });
+    }
+
     loadPost(id) {
         commonController.loadAll();
 
