@@ -2,7 +2,9 @@
   <div class="col-ts-12 col-sm-6 col-md-3 footer-widget eq-height">
     <div>
       <h3 class="footer-widget-title">Recent posts</h3>
-      
+      {{#each recentPosts.result}}
+        <a href="#/posts/{{this.id}}"><div class="footer-widget-link">{{substr "34" this.title}}</div></a>
+      {{/each}}
     </div>
   </div>
 
@@ -16,14 +18,18 @@
   <div class="col-ts-12 col-sm-6 col-md-3 footer-widget eq-height">
     <div>
       <h3 class="footer-widget-title">Recent posts</h3>
-      
+      {{#each recentPosts.result}}
+        <a href="#/posts/{{this.id}}"><div class="footer-widget-link">{{substr "35" this.title}}</div></a>
+      {{/each}}
     </div>
   </div>
 
   <div class="col-ts-12 col-sm-6 col-md-3 footer-widget eq-height">
     <div>
       <h3 class="footer-widget-title">Archives</h3>
-      
+      {{#each posts.result}}
+        <a href="#/posts/{{this.id}}"><div class="footer-widget-link">{{substr "34" this.title}}</div></a>
+      {{/each}}
     </div>
   </div>
 </section>
