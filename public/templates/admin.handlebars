@@ -33,7 +33,35 @@
       {{/each}}
     </div>
     <div id="widgets" class="tab-pane fade">
-      
+      {{#each widgets}}
+        {{#if sidebar}}
+          <div class="custom-sidebar-widget-container">
+            <h3>Sidebar widget</h3>
+            <form class="sidebar-widget-form" data-id="{{this.id}}">  
+              <label for="sidebar-widget-title">Title</label><br>
+              <input type="text" name="sidebar_widget_title" id="sidebar-widget-title" value="{{this.title}}" class="form-control"/><br>
+
+              <label for="sidebar-widget-text">Custom sidebar widget text</label><br>
+              <textarea id="sidebar-widget-text" class="form-control" rows="4">{{this.text}}</textarea><br />
+
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        {{else}}
+          <div class="custom-footer-widget-container">
+            <h3>Footer widget</h3>
+            <form class="footer-widget-form" data-id="{{this.id}}">
+              <label for="footer-widget-title">Title</label><br>
+              <input type="text" name="footer_widget_title" id="footer-widget-title" value="{{this.title}}" class="form-control"/><br>
+
+              <label for="footer-widget-text">Custom footer widget text</label><br>
+              <textarea id="footer-widget-text" class="form-control" rows="4">{{this.text}}</textarea><br />
+              
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        {{/if}}
+      {{/each}}
     </div>
     <div id="count" class="tab-pane fade">
       <form class="posts-count-form">
