@@ -45,6 +45,12 @@ const router = (() => {
             'posts/:id': (params) => {
                 postsController.loadPost(params.id);
             },
+            'posts/update/:id': (params) => {
+                postsController.loadEditPost(params.id);
+            },
+            'posts/delete/:id': (params) => {
+                postsController.loadDeletePost(params.id);
+            }
         }).resolve();
 
         navigo.notFound(() => {
