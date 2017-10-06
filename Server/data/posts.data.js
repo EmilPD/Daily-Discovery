@@ -77,6 +77,22 @@ module.exports = (db) => {
                 });
         },
 
+        getRelatedPosts(categoryId, postId) {
+            return Promise.resolve()
+                .then(() => {
+                    const postsInCategory = db.get('categories')
+                        .find({id: categoryId})
+                        .get('posts')
+                        .value();
+
+                        const relatedPosts = postsInCategory.filter((post) => {
+                            return post.id !== postId;
+                        });
+                        
+                    return relatedPosts.slice(0, 3);
+                });
+        },
+
         getRecentPosts(count) {
             return Promise.resolve()
                 .then(() => {
@@ -85,6 +101,19 @@ module.exports = (db) => {
                         .sortBy('publishTime')
                         .value();
                     return recentPosts.reverse().slice(0, count);
+                });
+        },
+
+        getPopularPosts() {
+            return Promise.resolve()
+                .then(() => {
+                    const popularPosts = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .value();
+
+                    return popularPosts.sort((a, b) => {
+                        return b.comments.length - a.comments.length;
+                    }).slice(0, 4);
                 });
         },
 
@@ -167,6 +196,28 @@ module.exports = (db) => {
                         .value();
                         
                     return posts.slice(0, count);
+                });
+        },
+
+        getSearchPosts(searchTerm) {
+            return Promise.resolve()
+                .then(() => {
+                    const allPosts = db.get('categories')
+                        .reduce((acc, val) => acc.concat( val.posts ), [])
+                        .value();
+
+                        const foundSearchedPosts = [];
+
+                        allPosts.map((post) => {
+                            const content = post.content.toLowerCase().indexOf(searchTerm.toLowerCase());
+                            const title = post.title.toLowerCase().indexOf(searchTerm.toLowerCase());
+                            
+                            if (content !== -1 || title !== -1) {
+                                foundSearchedPosts.push(post);
+                            }
+                        });
+                    
+                    return foundSearchedPosts;
                 });
         },
 
