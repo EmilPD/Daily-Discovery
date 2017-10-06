@@ -432,3 +432,22 @@ li.disabled .current {
     font-size: 4rem;
 }
 
+/* Category */
+
+.breadcrumb {
+    background: none;
+    margin-bottom: 0.5rem;
+    padding: 0 1.5rem;
+}
+
+.breadcrumb > li + li::before {
+    color: $links-color;
+    content: '»';
+    padding: 0 0.5rem 0 0.3rem;
+}
+
+.category-name,
+.post-title {
+    color: #8e8e8e;
+    text-shadow: 1px 1px $black;
+}
