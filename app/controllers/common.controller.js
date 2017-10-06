@@ -41,6 +41,23 @@ class CommonController {
         });
     }
 
+    showSearchResults() {
+        $('#search-box-form').submit(function(e) {
+            e.preventDefault();
+        });
+
+        $('#search-box').on('keyup', function (e) {
+            if (e.keyCode == 13) {
+                const searchTerm = $('#search-box').val();
+                if (searchTerm) {
+                    Promise.all([data.posts.getSearchPosts(searchTerm), tl.loadTemplate('search')])
+                    .then(([result, template]) => $('#main').html(template(result)))
+                    .catch(console.log);
+                }
+            }
+        });
+    }
+
     loadFooter() {
         Promise.all([
             data.posts.getNumberOfPosts(7),
@@ -58,6 +75,7 @@ class CommonController {
         this.showHideLoginRegister();
         this.navLinksSelectActive();
         this.loadFooter();
+        this.showSearchResults();
     }
 
     loadPageNotFound() {
