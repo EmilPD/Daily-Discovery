@@ -47,6 +47,16 @@ li {
     display: inline-block;
 }
 
+img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 #main {
     background: none;
     border-bottom: 1px solid #171717;
@@ -139,6 +149,11 @@ li {
     box-shadow: 2px 2px 3px $black;
     max-width: 100%;
     position: relative;
+}
+
+.compact-posts-container {
+    max-width: 90%;
+    margin: 0 auto;
 }
 
 .compact-post-content {
@@ -247,4 +262,119 @@ li {
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+/* Header */
+
+.navbar-collapse {
+    padding-right: 2.5rem;
+    padding-left: 1.7rem;
+}
+
+.logo-container {
+    max-width: 500px;
+    padding: 5rem 0 1.5rem 4.6rem;
+}
+
+.navbar-right {
+    margin-right: 0;
+}
+
+.nav > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+    background: none;
+    color: $brand-secondary-color;
+}
+
+.nav > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > a:hover {
+    background: none;
+}
+
+.navbar-nav a {
+    font-family: $primary-title-font;
+    color: $base-color;
+    text-shadow: 1px 1px $black;
+    letter-spacing: 1px;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+
+.dropdown-menu > li > a {
+    color: $base-color;
+    font-size: 2rem;
+    padding-left: 1.5rem;
+}
+
+.footer-widget-link {
+    padding: 0 0 0.7rem;
+}
+
+.dropdown-menu > li > a::before,
+.dropdown-menu > li > a:hover::before,
+.footer-widget-link::before {
+    color: #4f4f4f;
+    content: '»';
+    font-size: 2.8rem;
+    padding-right: 0.7rem;
+    text-shadow: 1px 1px $black;
+}
+
+.footer-widget-link::before {
+    font-size: 1.8rem;
+}
+
+.dropdown-menu > li > a:hover::before,
+.footer-widget-link:hover::before {
+    color: #911c0d;
+}
+
+.footer-widget-link:hover {
+    color: $base-color;
+    cursor: pointer;
+}
+
+.active > a {
+    color: $brand-secondary-color;
+}
+
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+    background-color: $dropdown-background-color;
+    border-radius: 7px 7px 0 0;
+}
+
+.dropdown-menu {
+    background-color: $dropdown-background-color;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    border-radius: 0 7px 7px 7px;
+}
+
+ul.dropdown-menu {
+    border: none;
+    box-shadow: 2px 2px 7px $dropdown-background-color;
+}
+
+#search-box {
+    background: transparent url('../images/magnifiyng-glass.png') no-repeat scroll 100%;
+    background-color: #1d1e1e;
+    border: solid #202020;
+    border-width: 0 1px 1px 0;
+    border-radius: 3px;
+    color: #c5c5c5;
+    font-size: 1.1rem;
+    font-style: italic;
+    text-shadow: 1px 1px $black;
+    width: 17rem;
+}
+
+#hello-user {
+    color: #aaa;
+    text-shadow: 1px 1px $black;
 }
