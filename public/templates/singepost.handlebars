@@ -37,6 +37,50 @@
                         <span>{{this}}</span> 
                     {{/each}}
                 </div>
+                {{#if relatedPosts.result}}
+                    <div class="single-post-related-container">
+                        <h3>Related posts</h3>
+                        {{#each relatedPosts.result}}
+                            <a href="#/posts/{{this.id}}">{{this.title}}</a><br />
+                        {{/each}}
+                    </div>
+                {{/if}}
+
+                <div class="single-post-share-icons-container">
+                    <h3>Share this</h3>
+                    <span>
+                        <a target="popup" onclick="window.open('http://twitter.com/intent/tweet?status={{result.post.title}}+https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}','popup','width=600,height=600,scrollbars=no,resizable=no'); return false;"
+                            href="http://twitter.com/intent/tweet?status={{result.post.title}}+https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}">
+                        <img src="./images/twitter.png" alt="twitter icon">
+                        </a>
+                    </span>
+
+                    <span>
+                        <a id="share-btn" title="Share on Facebook"
+                        href="https://www.facebook.com/sharer.php?caption={{result.post.title}}&description={{result.post.content}}&u=https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}&picture=https://daily--d.herokuapp.com/images/logo.png"
+                        target="_blank">
+                            <img src="./images/facebook.png" alt="facebook icon">
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="javascript:(function($){var bookmarklet=document.getElementById('DELI_save_link_slidedown');if(bookmarklet){$('#DELI_mist').show();$('#DELI_save_link_slidedown').slideDown('normal');return};if(!window.jQuery){node=document.createElement('SCRIPT');node.type='text/javascript';node.src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';document.body.appendChild(node)}node=document.createElement('SCRIPT');node.type='text/javascript';node.src=window.location.protocol+'//del.icio.us/save/get_bookmarklet_save?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text));document.body.appendChild(node)})(window.jQuery);">
+                            <img src="./images/share-icon3.png" alt="delicious icon">
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="http://www.digg.com/submit?url=https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}" target="_blank">
+                            <img src="./images/share-icon4.png" alt="digg icon">
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="http://reddit.com/submit?url=https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}&amp;title={{result.post.title}}" target="_blank">
+                            <img src="./images/share-icon5.png" alt="reddit icon">
+                        </a>
+                    </span>
+                </div>
             </section>
 
             <section class="col-ts-12 col-lg-9 single-post-main">
@@ -54,7 +98,154 @@
                 </div>
 
             </section>
-            
+            <div class="border-bottom"></div>
         </div> {{!-- end post content --}}
+        <section class="row main-comments-container"> {{!-- comments content --}}
+            <div id="comments-container" class="col-xs-12 col-lg-9 col-lg-offset-3 comments-container">
+                <div class="border-top"></div>
+                <div class="comments-count">
+                    {{result.post.comments.length}} Comments
+                </div>
+                <div class="comments-list-container">
+                    {{#each result.post.comments}}
+                        <article class="row comments-list-item">
+                            <figure class="col-xs-3 col-sm-2">
+                                <div class="comment-item-image-container">
+                                    <img class="comment-author-avatar" src="{{this.authorImageUrl}}" alt="comment author avatar">
+                                    <time class="comment-date">
+                                        <span>{{this.publishMonth}}</span>
+                                        <span>{{this.publishDate}}</span>
+                                    </time>
+                                </div>
+                            </figure>
+                            <div class="col-xs-9 col-sm-10 comment-item-content-container">
+                                <h4>{{this.author}}</h4>
+                                <div class="comment-item-content">
+                                    {{this.text}}
+                                </div>
+                                <button class="reply-comment-button">Reply</button>
+                            </div>
+                        
+                            <div class="row reply-comment-container hidden">
+                                <div class="col-xs-12">
+                                    <h3>Reply</h3>
+                                    <div>
+                                        <textarea class="reply-comment-text" name="reply-comment-text" rows="8"></textarea><br />
+                                        <button class="submit-reply-comment" data-commentId="{{this.id}}">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{#each this.replyComments}}
+                                <article class="row replied-comments-list-item">
+                                    <figure class="col-xs-3 col-sm-2 col-sm-offset-2">
+                                        <div class="replied-comment-item-image-container">
+                                            <img class="comment-author-avatar" src="{{this.authorImageUrl}}" alt="comment author avatar">
+                                            <time class="comment-date">
+                                                <span>{{this.publishMonth}}</span>
+                                                <span>{{this.publishDate}}</span>
+                                            </time>
+                                        </div>
+                                    </figure>
+                                    <div class="col-xs-9 col-sm-8 replied-comment-item-content-container">
+                                        <h4>{{this.author}}</h4>
+                                        <div class="replied-comment-item-content">
+                                            {{this.text}}
+                                        </div>
+                                    </div>
+                                </article>
+                            {{/each}}
+                        </article>
+                    {{/each}}
+                </div>
+                <div class="row add-comment-container">
+                    <div class="col-xs-12 col-md-8">
+                        <h3>Leave a comment</h3>
+                        <div>
+                            <textarea id="comment-text" name="comment-text" rows="8"></textarea><br />
+                            <button id="submit-comment">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-bottom"></div>
+            </div>
+            
+        </section> {{!-- end comments content --}}
     </article> {{!-- end all post content --}}
+    <aside class="col-ts-12 col-md-4 col-lg-3 sidebar-widgets"> {{!-- sidebar widgets --}}
+        <section class="recent-popular-random-container">
+            <ul class="row nav nav-tabs" role="tablist">
+                <li class="tab col-xs-4 active"><a data-toggle="tab" role="tab" aria-controls="recent" href="#recent">Recent</a></li>
+                <li class="tab col-xs-4"><a data-toggle="tab" role="tab" aria-controls="popular" href="#popular">Popular</a></li>
+                <li class="tab col-xs-4"><a data-toggle="tab" role="tab" aria-controls="random" href="#random">Random</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="recent" class="tab-pane fade in active" role="tabpanel">
+                    {{#each recentPosts.result}}
+                        <article class="row">
+                            <figure class="col-sm-3 col-md-2">
+                                <img class="tabs-post-author" src="{{this.authorImageUrl}}" alt="author avatar">
+                            </figure>
+                            <div class="col-sm-9 col-md-10">
+                                <div class="tabs-post-title">
+                                    <a href="#/posts/{{this.id}}">{{substr '30' this.title}}</a>
+                                </div>
+                                <div class="tabs-post-info">
+                                    Posted by {{this.author}} on {{this.publishMonth}} {{this.publishDate}}
+                                </div>
+                            </div>
+                        </article>
+                    {{/each}}
+                </div>
+                <div id="popular" class="tab-pane fade" role="tabpanel">
+                    {{#each popularPosts.result}}
+                        <article class="row">
+                            <figure class="col-sm-3 col-md-2">
+                                <img class="tabs-post-author" src="{{this.authorImageUrl}}" alt="author avatar">
+                            </figure>
+                            <div class="col-sm-9 col-md-10">
+                                <div class="tabs-post-title">
+                                    <a href="#/posts/{{this.id}}">{{substr '30' this.title}}</a>
+                                </div>
+                                <div class="tabs-post-info">
+                                    Posted by {{this.author}} on {{this.publishMonth}} {{this.publishDate}}
+                                </div>
+                            </div>
+                        </article>
+                    {{/each}}
+                </div>
+                <div id="random" class="tab-pane fade" role="tabpanel">
+                    {{#each popularPosts.result}}
+                        <article class="row">
+                            <figure class="col-sm-3 col-md-2">
+                                <img class="tabs-post-author" src="{{this.authorImageUrl}}" alt="author avatar">
+                            </figure>
+                            <div class="col-sm-9 col-md-10">
+                                <div class="tabs-post-title">
+                                    <a href="#/posts/{{this.id}}">{{substr '30' this.title}}</a>
+                                </div>
+                                <div class="tabs-post-info">
+                                    Posted by {{this.author}} on {{this.publishMonth}} {{this.publishDate}}
+                                </div>
+                            </div>
+                        </article>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="border-bottom"></div>
+        </section>
+        {{#each sidebarWidget}}
+            <section class="sidebar-widget-container">
+                <div class="custom-widget-container">        
+                    <h3>{{this.title}}</h3>
+                    <div class="sidebar-widget-content-divider"></div>
+                    <div class="sidebar-widget-content">
+                        {{this.text}}
+                    </div>
+                    <div class="border-bottom"></div>
+                </div>
+            </section>
+        {{/each}}
+    </aside> {{!-- end sidebar widgets --}}
 </div> {{!-- end all content --}}
