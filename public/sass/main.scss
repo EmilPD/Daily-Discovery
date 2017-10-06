@@ -378,3 +378,57 @@ ul.dropdown-menu {
     color: #aaa;
     text-shadow: 1px 1px $black;
 }
+
+/* Pagination */
+
+#pagination {
+    color: $brand-secondary-color;
+    font-family: $primary-title-font;
+    letter-spacing: 0.5rem;
+    line-height: 3rem;
+    padding: 4rem 0 3rem;
+    text-align: center;
+}
+
+#pagination a {
+    color: $base-color;
+}
+
+#pagination a:hover {
+    color: $brand-secondary-color;
+}
+
+#pagination ul {
+    position: relative;
+}
+
+#pagination ul > li:first-child {
+    font-size: 5rem;
+    position: absolute;
+    left: 0;
+    top: -0.7rem;
+}
+
+#pagination ul > li:last-child {
+    font-size: 5rem;
+    position: absolute;
+    right: 0;
+    top: -0.7rem;
+}
+
+li.disabled {
+    color: $base-color;
+}
+
+.page-link,
+.current {
+    padding-left: 1rem;
+    font-size: 3rem;
+}
+
+.page-link.next,
+.page-link.prev,
+li.disabled .current {
+    font-size: 4rem;
+}
+
