@@ -71,6 +71,19 @@ module.exports = (data) => {
             });
     }
 
+    function getRelated(req, res) {
+        const categoryId = Number(req.params.categoryId);
+        const postId = Number(req.params.postId);
+
+        return data.posts.getRelatedPosts(categoryId, postId)
+            .then((relatedPosts) => {
+                return res.status(201)
+                    .json({
+                        result: relatedPosts
+                    });
+            });
+    }
+
     function getRecent(req, res) {
         const count = Number(req.params.count);
 
@@ -79,6 +92,28 @@ module.exports = (data) => {
                 return res.status(201)
                     .json({
                         result: recentPosts
+                    });
+            });
+    }
+
+    function getPopular(req, res) {
+        return data.posts.getPopularPosts()
+            .then((popularPosts) => {
+                return res.status(201)
+                    .json({
+                        result: popularPosts
+                    });
+            });
+    }
+
+    function getSearchPosts(req, res) {
+        const searchTerm = req.params.searchTerm;
+
+        return data.posts.getSearchPosts(searchTerm)
+            .then((foundPosts) => {
+                return res.status(201)
+                    .json({
+                        result: foundPosts
                     });
             });
     }
@@ -170,6 +205,30 @@ module.exports = (data) => {
             });
     }
 
+    function deletePost(req, res) {
+        const postId = Number(req.params.id);
+        const user = req.user;
+
+        if (!user || typeof user.username !== 'string' || user.role !== 'admin') {
+            res.status(400)
+                .json('Only admin can delete posts!');
+            return;
+        }
+
+        return data.posts.getById(postId)
+            .then((post) => {
+                const categoryId = post.categoryId;
+
+                return data.posts.delete(postId, categoryId)
+            })
+            .then((message) => {
+                return res.status(201)
+                    .json({
+                        result: message
+                    });
+            });
+    }
+
     function postComment(req, res) {
         const postId = Number(req.params.id);
         const reqComment = req.body;
@@ -243,9 +302,13 @@ module.exports = (data) => {
         getCategoryPaginationInfo: getCategoryPaginationInfo,
         getAllPosts: getAllPosts,
         getNumberOfPosts: getNumberOfPosts,
+        getSearchPosts: getSearchPosts,
+        getRelated: getRelated,
         getRecent: getRecent,
+        getPopular: getPopular,
         post: publishPost,
         editPost: editPost,
+        deletePost: deletePost,
         postComment: postComment,
         postReplyComment: postReplyComment
     };
