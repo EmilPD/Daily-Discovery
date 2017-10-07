@@ -616,3 +616,99 @@ aside a {
     margin-top: 0;
     text-transform: uppercase;
 }
+
+.reply-comment-button,
+.submit-reply-comment,
+#submit-comment {
+    background-color: $light-gray-color;
+    border: none;
+    color: #7f7f7f;
+    float: right;
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    right: -1.5rem;
+    text-transform: uppercase;
+}
+
+.submit-reply-comment,
+#submit-comment {
+    position: initial;
+}
+
+.add-comment-container h3,
+.reply-comment-container h3,
+.single-post-container h1 {
+    color: $brand-primary-color;
+    font-family: $primary-title-font;
+    font-size: 3.2rem;
+    margin: 3rem 0 1rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.single-post-container h1 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+.single-post-author {
+    border-bottom: 1px dotted $border-dotted-color-light;
+    color: $single-post-title-dark;
+    font-family: $primary-title-font;
+    font-size: 1.8rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.9rem;
+    text-transform: uppercase;
+}
+
+.comments-list-container {
+    padding: 0 1.5rem;
+}
+
+.comments-list-item {
+    border-bottom: 1px dotted;
+    margin-bottom: 2rem;
+}
+
+.reply-comment-container {
+    clear: both;
+    margin-bottom: 3rem;
+}
+
+.single-post-tags-container {
+    margin-bottom: 2.5rem;
+}
+
+.single-post-tags-container h3,
+.single-post-related-container h3 {
+    color: $single-post-title-dark;
+    font-family: $primary-title-font;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+}
+.single-post-tags-container span {
+    background-color: $light-gray-color;
+    color: #7f7f7f;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    padding: 0.8rem 1rem;
+    text-shadow: 1px 1px $base-color;
+    text-transform: uppercase;
+}
+
+.single-post-related-container {
+    margin-bottom: 3rem;
+}
+
+.single-post-related-container a {
+    color: $body-font-color;
+    text-shadow: none;
+}
+
+.single-post-related-container a::before {
+    content: url('../images/sidebar-angle-right-black.png');
+    padding-right: 1rem;
+    vertical-align: text-bottom;
+}
