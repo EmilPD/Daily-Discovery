@@ -934,3 +934,20 @@ select#select-post-category {
 * END Select fix for Firefox
 * -----------------------------
 */
+
+/*
+ * BEGIN Row with equal height columns
+ * --------------------------------------------------
+ */
+.eq-height {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display:         flex !important;
+    flex-wrap: wrap;
+}
+
+/*
+ * END Row with equal height columns
+ * --------------------------------------------------
+ */
