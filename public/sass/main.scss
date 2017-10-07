@@ -865,3 +865,50 @@ aside a {
 * END Overriding Toastr styles 
 * ----------------------------
 */
+
+/* 
+* BEGIN Overriding Bootstrap styles 
+* ----------------------------
+*/
+
+.btn-primary {
+    color: #fcfbf7;
+    background-color: #d26c07;
+    background-image: none;
+    border-color: #b95f06;
+    border-bottom: 3px solid #bb5f01;
+}
+
+.btn {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+    color: $base-color;
+    background-color: $brand-primary-color;
+    border-color: darken($brand-primary-color, 20%)
+}
+
+.bootstrap-select:not([class*='col-']):not([class*='form-control']):not(.input-group-btn) {
+    width: 180px;
+}
+
+/* 
+* END Overriding Bootstrap styles 
+* ----------------------------
+*/
