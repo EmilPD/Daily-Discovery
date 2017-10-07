@@ -822,3 +822,28 @@ aside a {
     font-size: 5rem;
     margin-bottom: 5rem;
 }
+
+// Admin
+
+.footer-widget-form,
+.sidebar-widget-form {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.custom-sidebar-widget-container,
+.custom-footer-widget-container {
+    padding: 0 2rem 1rem;
+}
+
+.admin-dashboard-tabs a {
+    font-family: LeagueGothic;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: none;
+    text-transform: uppercase;    
+}
+
+.posts-count-form {
+    padding: 2rem;
+}
