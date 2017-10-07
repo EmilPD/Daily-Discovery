@@ -912,3 +912,25 @@ aside a {
 * END Overriding Bootstrap styles 
 * ----------------------------
 */
+
+/*
+* BEGIN Select fix for Firefox
+* ------------------------------
+*/
+
+select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+    background: #eee url($select-arrow) no-repeat center right;
+    text-indent: 0.01px;
+    text-overflow: '';
+}
+
+select#select-post-category {
+    background: url($select-arrow) no-repeat center right !important;
+}
+
+/*
+* END Select fix for Firefox
+* -----------------------------
+*/
