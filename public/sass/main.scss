@@ -847,3 +847,21 @@ aside a {
 .posts-count-form {
     padding: 2rem;
 }
+
+/* 
+* BEGIN Overriding Toastr styles 
+* ----------------------------
+*/
+
+.toast-success {
+    background-color: $brand-secondary-color;
+}
+
+.toast-error {
+    background-color: $brand-primary-color;
+}
+
+/* 
+* END Overriding Toastr styles 
+* ----------------------------
+*/
