@@ -451,3 +451,61 @@ li.disabled .current {
     color: #8e8e8e;
     text-shadow: 1px 1px $black;
 }
+
+/* Category Sidebar */
+
+aside a {
+    text-shadow: 1px 1px $base-color;
+}
+
+.sidebar-widget-container {
+    background-color: $widget-background-color;
+    box-shadow: 2px 2px 3px $black;
+}
+
+.sidebar-widget-container h3 {
+    color: $brand-primary-color;
+    font-family: $primary-title-font;
+    font-size: 3rem;
+    margin: 1rem 0;
+    text-shadow: 1px 1px $base-color;
+    text-transform: uppercase;
+}
+
+.sidebar-widgets-container {
+    padding-left: 1rem;
+}
+
+.recent-comments-container,
+.recent-posts-container,
+.custom-widget-container {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 1rem 1.6rem;
+    position: relative;
+}
+
+.sidebar-widget-content {
+    padding: 1.5rem 1rem 2.5rem;
+}
+
+.sidebar-widget-content-divider {
+    border-bottom: 1px dotted $border-dotted-color-dark;
+    left: 1%;
+    position: absolute;
+    width: 98%;
+}
+
+.sidebar-widget-links-container {
+    padding: 1.5rem 0 2.5rem;
+}
+
+.sidebar-widget-links-container a::before {
+    content: url('../images/sidebar-angle-right.png');
+    padding-right: 1.4rem;
+}
+
+.sidebar-widget-links-container a {
+    line-height: 2.5rem;
+}
+
