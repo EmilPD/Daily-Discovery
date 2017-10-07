@@ -712,3 +712,93 @@ aside a {
     padding-right: 1rem;
     vertical-align: text-bottom;
 }
+
+/* Single post sidebar */
+
+.sidebar-widgets {
+    padding-right: 0;
+}
+
+.recent-popular-random-container {
+    background-color: $widget-background-color;
+    box-shadow: 2px 2px 3px $black;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.sidebar-widgets .nav-tabs a {
+    color: #911c0d;
+    font-family: $primary-title-font;
+    font-size: 2.8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nav-tabs {
+    border-bottom: 1px dotted $border-dotted-color-dark;
+}
+
+.nav-tabs .tab {
+    background-color: $box-shadow-light;
+}
+
+.nav-tabs .active {
+    background-color: $widget-background-color;
+}
+
+.nav-tabs > li {
+    margin-bottom: 0;
+}
+
+.nav-tabs .col-xs-4 {
+    padding: 0;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    background-color: $widget-background-color;
+    border: 0;
+    border-bottom-color: transparent;
+    border-radius: initial;
+    color: $brand-primary-color;
+    cursor: default;
+}
+
+.tab + .tab {
+    border-left: 1px dotted $border-dotted-color-dark;
+}
+
+.nav-tabs > li > a {
+    border: 0;
+    margin-right: 0;
+}
+
+.tab-content article {
+    border-bottom: 1px dotted $border-dotted-color-dark;
+    padding: 1rem;
+}
+
+.tab-content article:last-child {
+    padding-bottom: 2rem;
+}
+
+.tabs-post-title a {
+    color: #2b2b2b;
+    font-size: 1.4rem;
+}
+
+.tabs-post-author {
+    border: 3px solid $box-shadow-light;
+    height: 4.4rem;
+    width: 4.4rem;
+}
+
+.tab-content figure {
+    padding-left: 1rem;
+}
+
+.tabs-post-info {
+    font-size: 1.1rem;
+    font-style: italic;
+}
