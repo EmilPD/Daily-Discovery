@@ -1149,3 +1149,15 @@ select#select-post-category {
         width: 6rem;
     }
 }
+
+@media (max-width: 440px) {
+    .comment-item-content-container, .replied-comment-item-content-container {
+        margin-left: 0;
+        padding: 0 1rem 2rem;
+    }
+}
+
+/* 
+* END Responsive CSS
+* --------------------------------------------
+*/
