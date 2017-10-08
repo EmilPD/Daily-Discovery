@@ -951,3 +951,36 @@ select#select-post-category {
  * END Row with equal height columns
  * --------------------------------------------------
  */
+
+/* 
+ * BEGIN Responsive CSS
+ * --------------------------------------------
+ */
+
+@media only screen and (min-device-width: 120px) and (max-device-width: 991px) {
+    .eq-height {
+        display: block;
+    }
+}
+
+@media (min-width: 3001px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 2201px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 1701px) {
+    html {
+        font-size: 15px;
+    }
+    .sidebar-widget-links-container a::before {
+        content: '»';
+        padding-right: 1.4rem;
+    }
+}
