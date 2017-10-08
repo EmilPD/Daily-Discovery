@@ -125,19 +125,7 @@
           "id": 33,
           "author": "Ivan Ivanov",
           "authorImageUrl": "images/users/ivan.jpg",
-          "comments": [
-            {
-              "id": 11,
-              "postId": 33,
-              "author": "Ivan Ivanov",
-              "authorImageUrl": "images/users/ivan.jpg",
-              "text": "Wow - 18 years to have a number 1 album in the UK, it must be a good feeling",
-              "replyComments": [],
-              "publishTime": 1507129392720,
-              "publishDate": 4,
-              "publishMonth": "Oct"
-            }
-          ],
+          "comments": [],
           "publishTime": 1506803360787,
           "publishDate": 30,
           "publishMonth": "Sep"
@@ -443,7 +431,7 @@
           "title": "Elie Saab",
           "category": "Fashion",
           "content": "We were under a series of canopies imprinted with a, well, canopy of jungle foliage. When the lights went down, they beamed a soft leafy camouflage onto the runway. It was certainly humid and close and richly perfumed—the latter thanks to the high proportion of carefully turned out clients who attended—in this darkened corner of the Grand Palais. The notes informed us this was an Amazon collection.\nReally, though, this expedition from Elie Saab was more “early investor in Amazon, the company” than denizen of Amazon, the river-defined jungle region. Sure, there was python print aplenty, earrings of golden leaves and colored arrowheads, and some long princess dresses edged with the same nicely embroidered foliage relief that was on our invitations. Some other long silk pieces, including a rather epic kaftan, were printed with an attractive long-frond pattern, and some of the sheer white or black dresses were etched with different tropical botanicals.\nCutting across these were suites of boldly colored daywear and eveningwear: nicely cut jackets, slouchy field jackets, fringed skirts, more embroidered evening dresses (sometimes accessorized with the latest example of the this-season massive straw hat). Rather tellingly, the show ended with an efficiently sleek backless and sleeveless jumpsuit with long fringing details at its neckline. Saab used his theme only to accent this collection rather than to fully define it, which was no bad thing.",
-          "imageUrl": "images/posts/fashion-3.jpg",
+          "imageUrl": "http://127.0.0.1/images/posts/fashion-3.jpg",
           "tags": [
             "Fashion week",
             "trends",
@@ -1117,29 +1105,7 @@
           "id": 70,
           "author": "Slavka Slavova",
           "authorImageUrl": "images/users/slavka.jpg",
-          "comments": [
-            {
-              "id": 9,
-              "postId": 70,
-              "author": "Ivan Ivanov",
-              "authorImageUrl": "images/users/ivan.jpg",
-              "text": "That is great",
-              "replyComments": [
-                {
-                  "id": 10,
-                  "author": "Ivan Ivanov",
-                  "authorImageUrl": "images/users/ivan.jpg",
-                  "text": "Yes",
-                  "publishTime": 1507128779312,
-                  "publishDate": 4,
-                  "publishMonth": "Oct"
-                }
-              ],
-              "publishTime": 1507128677043,
-              "publishDate": 4,
-              "publishMonth": "Oct"
-            }
-          ],
+          "comments": [],
           "publishTime": 1506833889468,
           "publishDate": 1,
           "publishMonth": "Oct"
