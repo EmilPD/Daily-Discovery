@@ -1122,3 +1122,30 @@ select#select-post-category {
         width: 90%;
     }
 }
+
+// col-ts
+@media (max-width: 480px) {
+    .col-ts-12 {
+        float: none;
+        width: 100%;
+    }
+    .logo-container {
+        width: 100%;
+        padding: 3rem;
+        margin: 0 auto;
+    }
+    .tabs-post-title a {
+        font-size: 1.4rem;
+    }
+    .tabs-post-info {
+        font-size: 1.1rem;
+    }
+    .tab-content figure {
+        padding: 0rem;
+        text-align: center;
+    }
+    .tabs-post-author {
+        height: 6rem;
+        width: 6rem;
+    }
+}
