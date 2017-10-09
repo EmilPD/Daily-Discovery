@@ -65,19 +65,19 @@
 
                     <span>
                         <a href="javascript:(function($){var bookmarklet=document.getElementById('DELI_save_link_slidedown');if(bookmarklet){$('#DELI_mist').show();$('#DELI_save_link_slidedown').slideDown('normal');return};if(!window.jQuery){node=document.createElement('SCRIPT');node.type='text/javascript';node.src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js';document.body.appendChild(node)}node=document.createElement('SCRIPT');node.type='text/javascript';node.src=window.location.protocol+'//del.icio.us/save/get_bookmarklet_save?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text));document.body.appendChild(node)})(window.jQuery);">
-                            <img src="./images/share-icon3.png" alt="delicious icon">
+                            <img src="./images/delicious.png" alt="delicious icon">
                         </a>
                     </span>
 
                     <span>
                         <a href="http://www.digg.com/submit?url=https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}" target="_blank">
-                            <img src="./images/share-icon4.png" alt="digg icon">
+                            <img src="./images/digg.png" alt="digg icon">
                         </a>
                     </span>
 
                     <span>
                         <a href="http://reddit.com/submit?url=https%3A%2F%2Fdaily--d.herokuapp.com%2F%23%2Fposts%2F{{result.post.id}}&amp;title={{result.post.title}}" target="_blank">
-                            <img src="./images/share-icon5.png" alt="reddit icon">
+                            <img src="./images/reddit.png" alt="reddit icon">
                         </a>
                     </span>
                 </div>
