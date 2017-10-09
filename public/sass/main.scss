@@ -978,6 +978,13 @@ select#select-post-category {
         content: '»';
         padding-right: 1.4rem;
     }
+    #hello-user {
+        position: relative;
+        top: -4px;
+    }
+    .container-fluid>.navbar-collapse {
+        margin-left: 1rem;
+    }
 }
 
 @media (min-width: 2201px) {
