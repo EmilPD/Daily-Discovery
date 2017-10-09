@@ -14,6 +14,35 @@ gulp.task('clean', () => {
         .pipe(clean());
 });
 
+gulp.task('compile:server', () => {
+    return gulp.src([
+            './server/**/*.js',
+        ])
+        .pipe(strip())
+        .pipe(babel({
+            presets: ['es2015'],
+        }))
+        .pipe(gulp.dest('./build/server'));
+});
+
+gulp.task('compile:public', () => {
+    return gulp.src([
+            './public/js/**/*.js',
+        ])
+        .pipe(babel({
+            presets: ['es2015'],
+        }))
+        .pipe(gulp.dest('./build/public/js'));
+});
+
+gulp.task('compile:sass', () => {
+    return gulp.src('./public/sass/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('./build/public/css'));
+});
+
+gulp.task('compile', ['compile:server', 'compile:public', 'compile:sass']);
+
 gulp.task('copy:app', () => {
     return gulp
         .src([
@@ -56,7 +85,7 @@ gulp.task('copy:templates', () => {
 
 gulp.task('copy', ['copy:app', 'copy:fonts', 'copy:images', 'copy:css', 'copy:templates']);
 
-gulp.task('build', gulpsync.sync(['clean', 'copy']));
+gulp.task('build', gulpsync.sync(['clean', 'compile', 'copy']));
 
 gulp.task('serve', ['build'], () => {
     nodemon({
