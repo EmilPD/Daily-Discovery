@@ -20,6 +20,11 @@ body {
     color: $body-font-color;
 }
 
+header {
+    width: 95%;
+    margin: 0 auto;
+}
+
 footer {
     background: url(../images/footer-bg.png);
     background-repeat: repeat-y;
@@ -140,8 +145,8 @@ img {
 }
 
 .category-posts-container {
-    padding-right: 0;
-    padding-left: 0.5rem;
+    padding-right: 0 !important;
+    padding-left: 0.5rem !important;
 }
 
 .compact-post-container {
@@ -236,7 +241,7 @@ img {
 }
 
 .compact-post-content-divider {
-    border-bottom: 1px dotted $border-dotted-color-light;
+    border-bottom: 0.1rem dotted $border-dotted-color-light;
     left: 1%;
     position: absolute;
     width: 98%;
@@ -268,12 +273,12 @@ img {
 
 .navbar-collapse {
     padding-right: 2.5rem;
-    padding-left: 1.7rem;
+    padding-left: 1.5rem;
 }
 
 .logo-container {
     max-width: 500px;
-    padding: 5rem 0 1.5rem 4.6rem;
+    padding: 5rem 0 1.5rem 1rem;
 }
 
 .navbar-right {
@@ -359,6 +364,10 @@ img {
 ul.dropdown-menu {
     border: none;
     box-shadow: 2px 2px 7px $dropdown-background-color;
+}
+
+#search-box-form {
+    margin-top: 0.4rem;
 }
 
 #search-box {
@@ -474,7 +483,7 @@ aside a {
 }
 
 .sidebar-widgets-container {
-    padding-left: 1rem;
+    padding-left: 1rem !important;
 }
 
 .recent-comments-container,
@@ -491,7 +500,7 @@ aside a {
 }
 
 .sidebar-widget-content-divider {
-    border-bottom: 1px dotted $border-dotted-color-dark;
+    border-bottom: 0.1rem dotted $border-dotted-color-dark;
     left: 1%;
     position: absolute;
     width: 98%;
@@ -557,7 +566,7 @@ aside a {
 } 
 
 .comments-count {
-    border-bottom: 1px dotted $border-dotted-color-light;
+    border-bottom: 0.1rem dotted $border-dotted-color-light;
     color: $brand-primary-color;
     font-family: $primary-title-font;
     font-size: 3.2rem;
@@ -654,7 +663,7 @@ aside a {
 }
 
 .single-post-author {
-    border-bottom: 1px dotted $border-dotted-color-light;
+    border-bottom: 0.1rem dotted $border-dotted-color-light;
     color: $single-post-title-dark;
     font-family: $primary-title-font;
     font-size: 1.8rem;
@@ -668,7 +677,7 @@ aside a {
 }
 
 .comments-list-item {
-    border-bottom: 1px dotted;
+    border-bottom: 0.1rem dotted;
     margin-bottom: 2rem;
 }
 
@@ -736,7 +745,7 @@ aside a {
 }
 
 .nav-tabs {
-    border-bottom: 1px dotted $border-dotted-color-dark;
+    border-bottom: 0.1rem dotted $border-dotted-color-dark;
 }
 
 .nav-tabs .tab {
@@ -767,7 +776,7 @@ aside a {
 }
 
 .tab + .tab {
-    border-left: 1px dotted $border-dotted-color-dark;
+    border-left: 0.1rem dotted $border-dotted-color-dark;
 }
 
 .nav-tabs > li > a {
@@ -776,7 +785,7 @@ aside a {
 }
 
 .tab-content article {
-    border-bottom: 1px dotted $border-dotted-color-dark;
+    border-bottom: 0.1rem dotted $border-dotted-color-dark;
     padding: 1rem;
 }
 
@@ -968,6 +977,10 @@ select#select-post-category {
     .compact-post-image {
         max-height: 12.5rem;
     }
+    #hello-user {
+        position: relative;
+        top: -4px;
+    }
 }
 
 @media (min-width: 1701px) {
@@ -978,18 +991,21 @@ select#select-post-category {
         content: '»';
         padding-right: 1.4rem;
     }
-    #hello-user {
-        position: relative;
-        top: -4px;
+    #search-box-form {
+        margin-top: 0;
     }
-    .container-fluid>.navbar-collapse {
-        margin-left: 1rem;
+    #publish-post-form,
+    #edit-post-form {
+        width: 90%;
     }
 }
 
 @media (min-width: 2201px) {
     html {
         font-size: 20px;
+    }
+    #hello-user {
+        position: initial;
     }
 }
 
@@ -1001,12 +1017,6 @@ select#select-post-category {
 
 // col-lg
 @media (max-width: 1200px) {
-    .logo-container {
-        padding: 3.6rem;
-    }
-    .container-fluid {
-        padding-right: 2.5rem;
-    }
     .single-post-main {
         padding-top: 4rem;
     }
