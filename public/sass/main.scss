@@ -1129,6 +1129,9 @@ select#select-post-category {
     .admin-dashboard-tabs {
         width: 90%;
     }
+    .nav-tabs > li > a {
+        padding: 0.5rem;
+    }
 }
 
 // col-ts
@@ -1162,6 +1165,9 @@ select#select-post-category {
     .comment-item-content-container, .replied-comment-item-content-container {
         margin-left: 0;
         padding: 0 1rem 2rem;
+    }
+    .admin-dashboard-tabs a {
+        font-size: 2.3rem;
     }
 }
 
