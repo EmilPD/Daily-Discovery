@@ -89,7 +89,7 @@ img {
 
 #login-form label,
 #register-form label,
-#publish-post-form, #edit-post-form label,
+#publish-post-form label, #edit-post-form label,
 .sidebar-widget-form label,
 .footer-widget-form label {
     margin-bottom: 0.7rem;
@@ -98,7 +98,7 @@ img {
 .admin-dashboard-tabs {
     background-color: $widget-background-color;
     box-shadow: 2px 2px 3px $black;
-    margin: 0 auto;
+    margin: 0 auto 3rem;
     position: relative;
     width: 50%;
 }
@@ -429,7 +429,7 @@ li.disabled {
 .page-link.next,
 .page-link.prev,
 li.disabled .current {
-    font-size: 4rem;
+	font-size: 4rem;
 }
 
 /* Category */
@@ -963,15 +963,9 @@ select#select-post-category {
     }
 }
 
-@media (min-width: 3001px) {
-    html {
-        font-size: 30px;
-    }
-}
-
-@media (min-width: 2201px) {
-    html {
-        font-size: 20px;
+@media (min-width: 1201px) {
+    .compact-post-image {
+        max-height: 12.5rem;
     }
 }
 
@@ -985,9 +979,15 @@ select#select-post-category {
     }
 }
 
-@media (min-width: 1201px) {
-    .compact-post-image {
-        max-height: 12.5rem;
+@media (min-width: 2201px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 3001px) {
+    html {
+        font-size: 30px;
     }
 }
 
